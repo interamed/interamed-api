@@ -2,13 +2,14 @@ defmodule InteramedWeb.Router do
   use InteramedWeb, :router
 
   pipeline :api do
+    plug CORSPlug, origin: "*", methods: ['*']
     plug :accepts, ["json"]
   end
 
   scope "/api", InteramedWeb do
     pipe_through :api
-    post "/interactions", MedicinesController, :interactions
     get "/medicines", MedicinesController, :get_medicines
+    post "/interactions", MedicinesController, :interactions
   end
 
   # Enables LiveDashboard only for development
