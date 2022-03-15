@@ -1,10 +1,5 @@
 defmodule Interamed.MedicinesList do
   @collection "medicines"
-  # db.medicines.find({"_id" : ObjectId("6176e303f6a47a1848f67821"),"interacao": { $in:[/zoledrônico/]}}).pretty().count()
-
-  #  db.medicines.find({"nomeComercial": {$in: [/dipirona/]}, "interacao": {$in:[/ácido acetilsalicílico/]}}).pretty()
-  #  "6176bf83f6a47a18483e5cd6" -> Dipirona
-  # "6176a3bbf6a47a18483b777d" -> ácido acetilsalicílico
 
   def get_medicines(text_search) do
     search_expression = %BSON.Regex{pattern: text_search, options: "i"}
